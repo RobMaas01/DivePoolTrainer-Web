@@ -61,7 +61,7 @@ body.training-mode footer{display:none}
 body:not(.training-mode) #settings .settings-card{min-height:calc(100dvh - 205px);display:flex;flex-direction:column;justify-content:space-between}
 @media(max-width:700px){
   body:not(.training-mode) #settings{padding-top:18px;padding-bottom:20px}
-  body:not(.training-mode):has(#settings:not([hidden])) footer{display:none}
+  body:not(.training-mode):has(#settings:not([hidden])) footer{display:block;position:fixed;left:0;right:0;bottom:0;z-index:3;padding:8px 8px 10px;text-align:center;background:#6079ad;border-top:1px solid #49669b}
   body:not(.training-mode) #settings .section-heading{margin-bottom:10px}
   body:not(.training-mode) #settings .settings-card{min-height:0;display:block}
   body:not(.training-mode) #settings .settings-card .range-heading{margin-top:12px}
