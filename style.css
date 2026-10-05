@@ -78,6 +78,10 @@ body.training-mode .figure-card{height:auto;align-self:flex-start;display:block}
 body.training-mode .figure-card img{height:auto;max-height:none;aspect-ratio:auto;object-fit:contain;align-self:flex-start}
 body.training-mode .training-bottom{height:105px}
 @media(max-width:700px){
+  body.training-mode .site-header{height:54px}
+  body.training-mode .tabs{height:43px}
+  body.training-mode #train{grid-template-rows:90px minmax(0,1fr) 112px}
+  body.training-mode .training-bottom{height:112px}
   .filter-buttons{flex-wrap:nowrap;gap:5px}
   .filter{padding:10px 8px;font-size:11px;white-space:nowrap}
   body.training-mode .app-shell{padding-left:8px;padding-right:8px}
