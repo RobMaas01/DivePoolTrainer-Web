@@ -1,5 +1,5 @@
-const CACHE_NAME = 'dive-pool-v14';
-const CORE = ['./', './index.html', './style.css?v=10', './i18n.js?v=6', './app.js?v=6', './icon.svg', './manifest.webmanifest?v=3', './data/pool.json'];
+const CACHE_NAME = 'dive-pool-v15';
+const CORE = ['./', './index.html', './style.css?v=10', './i18n.js?v=6', './app.js?v=7', './icon.svg', './manifest.webmanifest?v=3', './data/pool.json'];
 
 self.addEventListener('install', event => {
   event.waitUntil((async () => {

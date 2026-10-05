@@ -174,7 +174,7 @@ function drawJump() {
   revealTimer = setTimeout(revealFigures, settings.delay);
 }
 
-function makeFigureCard(item) {
+function makeFigureCard(item, eager = false) {
   const button = document.createElement('button');
   button.type = 'button';
   button.className = 'figure-card';
@@ -183,7 +183,7 @@ function makeFigureCard(item) {
   const image = document.createElement('img');
   image.src = `./${item.image}`;
   image.alt = `${item.code}: ${item.name}`;
-  image.loading = 'lazy';
+  image.loading = eager ? 'eager' : 'lazy';
 
   const meta = document.createElement('div');
   meta.className = 'figure-meta';
@@ -207,7 +207,7 @@ function makeFigureCard(item) {
 function revealFigures() {
   clearTimeout(revealTimer);
   if (!selected.length) return;
-  els.figureCards.replaceChildren(...selected.map(makeFigureCard));
+  els.figureCards.replaceChildren(...selected.map(item => makeFigureCard(item, true)));
   els.revealStatus.textContent = t(selected.length === 1 ? 'shownOne' : 'shownMany', { count: selected.length });
 }
 
