@@ -9,7 +9,7 @@
     <link rel="manifest" href="./manifest.webmanifest?v=3" />
     <link rel="stylesheet" href="./style.css?v=15" />
     <title>DIVE POOL trainer</title>
-    <script src="./i18n.js?v=6" defer></script>
+    <script src="./i18n.js?v=7" defer></script>
     <script src="./app.js?v=7" defer></script>
   </head>
   <body class="training-mode">
@@ -17,7 +17,7 @@
       <header class="site-header">
         <a class="brand" href="./" aria-label="DIVE POOL trainer, home">
           <span class="brand-mark" aria-hidden="true">✦</span>
-          <span><strong>DIVE POOL</strong><small>trainer</small></span>
+          <span><strong>DIVE POOL</strong><small data-i18n="trainerLabel">trainer</small></span>
         </a>
         <label class="language-control"><span class="sr-only" data-i18n="languageLabel">Language</span><select id="language-select" aria-label="Language"><option value="en">English</option><option value="nl">Nederlands</option><option value="nl-BE">Vlaams (België)</option><option value="fr">Français</option><option value="de">Deutsch</option><option value="uk">Українська</option></select></label>
       </header>
@@ -69,7 +69,7 @@
           <div class="section-heading"><div><h2 id="settings-heading" data-i18n="tabSettings">Settings</h2></div></div>
           <div class="settings-card">
             <label for="pool-select" data-i18n="poolLabel">Dive pool</label>
-            <select id="pool-select"><option>FS4 AAA</option><option>FS4 AAA ISR</option><option>FS8 Outdoor</option><option selected>FS8 Indoor</option></select>
+            <select id="pool-select"><option>FS4 AAA</option><option>FS4 AAA ISR</option><option>FS8 Outdoor</option><option selected data-i18n="poolIndoor">FS8 Indoor</option></select>
 
             <div class="range-heading"><label for="level-range" data-i18n="difficultyLabel">Difficulty</label><output id="level-output" for="level-range">Intermediate · 3–4 formations</output></div>
             <input id="level-range" type="range" min="1" max="3" step="1" value="2" />

@@ -65,9 +65,20 @@ const REMAINING_LABELS = {
   uk: 'Залишилось: {count}',
 };
 
+const POOL_LABELS = {
+  en: { trainer: 'trainer', indoor: 'FS8 Indoor' },
+  nl: { trainer: 'trainer', indoor: 'FS8 Indoor' },
+  'nl-BE': { trainer: 'trainer', indoor: 'FS8 Indoor' },
+  fr: { trainer: 'entraîneur', indoor: 'FS8 intérieur' },
+  de: { trainer: 'Trainer', indoor: 'FS8 Halle' },
+  uk: { trainer: 'тренер', indoor: 'FS8 у приміщенні' },
+};
+
 for (const [locale, dictionary] of Object.entries(DICTIONARIES)) {
   dictionary.ready = 'Ready-set';
   dictionary.remaining = REMAINING_LABELS[locale];
+  dictionary.trainerLabel = POOL_LABELS[locale].trainer;
+  dictionary.poolIndoor = POOL_LABELS[locale].indoor;
   dictionary.homeLabel = dictionary.homeLabel.replace('Dive Pool Trainer', 'DIVE POOL trainer');
   [dictionary.levelBeginner, dictionary.levelIntermediate, dictionary.levelExpert] = LEVEL_LABELS[locale];
 }

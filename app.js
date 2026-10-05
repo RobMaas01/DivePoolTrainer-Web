@@ -19,6 +19,10 @@ function levelText(level) {
   return t(({ 1: 'levelBeginner', 2: 'levelIntermediate', 3: 'levelExpert' })[level]);
 }
 
+function poolLabel(pool) {
+  return pool === 'FS8 Indoor' ? t('poolIndoor') : pool;
+}
+
 function loadLanguage() {
   try {
     const saved = localStorage.getItem(LANGUAGE_KEY);
@@ -143,8 +147,8 @@ function resetSession() {
 }
 
 function updateSessionInfo() {
-  els.activePool.textContent = settings.pool;
-  els.libraryPool.textContent = settings.pool;
+  els.activePool.textContent = poolLabel(settings.pool);
+  els.libraryPool.textContent = poolLabel(settings.pool);
   els.roundCount.textContent = t('round', { count: rounds });
   els.remaining.textContent = t('remaining', { count: remaining.length });
   els.levelLabel.textContent = levelText(settings.level);
