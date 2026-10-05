@@ -7,31 +7,22 @@
     <meta name="description" content="Learn the letters and formations of the formation skydiving dive pool." />
     <link rel="icon" href="./icon.svg" type="image/svg+xml" />
     <link rel="manifest" href="./manifest.webmanifest" />
-    <link rel="stylesheet" href="./style.css?v=2" />
+    <link rel="stylesheet" href="./style.css?v=3" />
     <title>Dive Pool Trainer</title>
     <script src="./i18n.js?v=2" defer></script>
-    <script src="./app.js?v=2" defer></script>
+    <script src="./app.js?v=3" defer></script>
   </head>
-  <body>
+  <body class="training-mode">
     <div class="app-shell">
       <header class="site-header">
         <a class="brand" href="./" aria-label="Dive Pool Trainer, home">
           <span class="brand-mark" aria-hidden="true">✦</span>
           <span><strong>DIVE POOL</strong><small>TRAINER</small></span>
         </a>
-        <div class="header-right"><span class="header-note">FORMATION SKYDIVING · MEMORY TRAINING</span><label class="language-control"><span class="sr-only" data-i18n="languageLabel">Language</span><select id="language-select" aria-label="Language"><option value="en">English</option><option value="nl">Nederlands</option><option value="nl-BE">Vlaams (België)</option><option value="fr">Français</option><option value="de">Deutsch</option><option value="uk">Українська</option></select></label></div>
+        <label class="language-control"><span class="sr-only" data-i18n="languageLabel">Language</span><select id="language-select" aria-label="Language"><option value="en">English</option><option value="nl">Nederlands</option><option value="nl-BE">Vlaams (België)</option><option value="fr">Français</option><option value="de">Deutsch</option><option value="uk">Українська</option></select></label>
       </header>
 
       <main>
-        <section class="intro">
-          <div>
-            <p class="eyebrow" data-i18n="heroEyebrow">TRAIN YOUR COMPETITION MEMORY</p>
-            <h1><span data-i18n="heroTitle1">See the code.</span><br /><em data-i18n="heroTitle2">Know the dive.</em></h1>
-            <p class="intro-copy" data-i18n="heroCopy">Practice the letters, blocks and formations in your dive pool. On your phone, tablet or computer.</p>
-          </div>
-          <div class="intro-symbol" aria-hidden="true"><span>4</span><i>↗</i><span>8</span></div>
-        </section>
-
         <nav class="tabs" aria-label="Sections">
           <button type="button" class="tab is-active" data-tab="train" aria-current="page" data-i18n="tabTrain">Train</button>
           <button type="button" class="tab" data-tab="library" data-i18n="tabLibrary">Figure library</button>
@@ -39,31 +30,30 @@
         </nav>
 
         <section id="train" class="view" aria-labelledby="train-heading">
-          <div class="section-heading">
-            <div><p class="eyebrow" data-i18n="sectionTrain">01 / TRAIN</p><h2 id="train-heading" data-i18n="trainHeading">Your next dive</h2></div>
-            <span class="pool-badge" id="active-pool"></span>
-          </div>
+          <h2 id="train-heading" class="sr-only" data-i18n="trainHeading">Your next dive</h2>
           <div class="training-card">
-            <div class="training-topline"><span data-i18n="randomCombination">RANDOM COMBINATION</span><span id="round-count">Round 0</span></div>
+            <div class="training-topline"><span id="active-pool">FS4 AAA</span><span id="round-count" class="sr-only">Round 0</span></div>
             <div class="jump-display" id="jump-display" aria-live="polite">Ready to start</div>
-            <p class="jump-hint" id="jump-hint">Press GO to get a new combination.</p>
+            <div class="stat-line"><span id="remaining-count">38 left</span><span id="points-label" class="sr-only">Target: 5 points</span></div>
+            <p class="jump-hint sr-only" id="jump-hint">Press GO to get a new combination.</p>
+          </div>
+          <div class="figure-stage">
+            <div id="figure-cards" class="figure-grid" aria-live="polite"></div>
+            <div id="reveal-status" class="sr-only" role="status"></div>
+          </div>
+          <div class="training-bottom">
             <div class="training-actions">
-              <button type="button" class="primary-button" id="go-button">GO <span aria-hidden="true">↗</span></button>
-              <button type="button" class="secondary-button" id="reveal-button" disabled data-i18n="revealButton">Show figures</button>
-              <button type="button" class="text-button" id="reset-button" data-i18n="resetButton">Restart pool</button>
+              <button type="button" class="primary-button" id="go-button">GO</button>
+              <button type="button" class="text-button" id="reset-button" aria-label="Restart pool" title="Restart pool">↻</button>
             </div>
           </div>
-          <div class="stat-line"><span id="remaining-count">38 figures left</span><span id="points-label">Target: 5 points</span></div>
-          <div id="reveal-status" class="reveal-status" role="status"></div>
-          <div id="figure-cards" class="figure-grid" aria-live="polite"></div>
         </section>
 
         <section id="library" class="view" aria-labelledby="library-heading" hidden>
           <div class="section-heading">
-            <div><p class="eyebrow" data-i18n="sectionLearn">02 / LEARN</p><h2 id="library-heading" data-i18n="libraryHeading">Figure library</h2></div>
+            <div><h2 id="library-heading" data-i18n="libraryHeading">Figure library</h2></div>
             <span class="pool-badge" id="library-pool"></span>
           </div>
-          <p class="section-copy" data-i18n="libraryCopy">Explore the name and drawing of every letter and block in your selected pool.</p>
           <div class="library-tools">
             <label class="search-label"><span class="sr-only" data-i18n="searchLabel">Search figure or name</span><input id="search-input" type="search" placeholder="Search code or name…" autocomplete="off" /></label>
             <div class="filter-buttons" aria-label="Filter figures">
@@ -77,24 +67,20 @@
         </section>
 
         <section id="settings" class="view" aria-labelledby="settings-heading" hidden>
-          <div class="section-heading"><div><p class="eyebrow" data-i18n="sectionSettings">03 / SETTINGS</p><h2 id="settings-heading" data-i18n="settingsHeading">Make it your training</h2></div></div>
+          <div class="section-heading"><div><h2 id="settings-heading" data-i18n="tabSettings">Settings</h2></div></div>
           <div class="settings-card">
             <label for="pool-select" data-i18n="poolLabel">Dive pool</label>
             <select id="pool-select"><option>FS4 AAA</option><option>FS4 AAA ISR</option><option>FS8 Outdoor</option><option>FS8 Indoor</option></select>
-            <p class="field-help" data-i18n="poolHelp">Changing the pool starts a new training session.</p>
 
             <div class="range-heading"><label for="points-range" data-i18n="difficultyLabel">Difficulty</label><output id="points-output" for="points-range">5 points</output></div>
             <input id="points-range" type="range" min="1" max="5" step="1" value="5" />
-            <p class="field-help" data-i18n="difficultyHelp">The combination continues until it reaches this many points. A block counts as two.</p>
 
             <div class="range-heading"><label for="delay-range" data-i18n="delayLabel">Figure delay</label><output id="delay-output" for="delay-range">2.0 seconds</output></div>
             <input id="delay-range" type="range" min="0" max="5000" step="100" value="2000" />
-            <p class="field-help" data-i18n="delayHelp">The images appear automatically after this delay. You can show them sooner with “Show figures”.</p>
             <button type="button" class="primary-button save-button" id="save-button" data-i18n="saveButton">Save settings</button>
           </div>
         </section>
       </main>
-      <footer data-i18n="footer">Train independently · No account needed · Works offline after your first visit</footer>
     </div>
 
     <dialog id="figure-dialog" class="figure-dialog" aria-label="Enlarged figure">

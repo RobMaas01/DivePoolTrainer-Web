@@ -31,7 +31,6 @@ const els = {
   jumpDisplay: document.querySelector('#jump-display'),
   jumpHint: document.querySelector('#jump-hint'),
   go: document.querySelector('#go-button'),
-  reveal: document.querySelector('#reveal-button'),
   reset: document.querySelector('#reset-button'),
   remaining: document.querySelector('#remaining-count'),
   pointsLabel: document.querySelector('#points-label'),
@@ -76,6 +75,7 @@ function readSettings() {
 }
 
 function openTab(name) {
+  document.body.classList.toggle('training-mode', name === 'train');
   els.views.forEach(view => { view.hidden = view.id !== name; });
   els.tabs.forEach(tab => {
     const active = tab.dataset.tab === name;
@@ -110,6 +110,8 @@ function translatePage() {
   document.querySelector('.filter-buttons').setAttribute('aria-label', t('filterLabel'));
   document.querySelector('.brand').setAttribute('aria-label', t('homeLabel'));
   els.language.setAttribute('aria-label', t('languageLabel'));
+  els.reset.setAttribute('aria-label', t('resetButton'));
+  els.reset.title = t('resetButton');
   els.dialog.setAttribute('aria-label', t('enlargedFigure'));
   els.dialogClose.setAttribute('aria-label', t('close'));
   updateOutputs();
@@ -135,7 +137,6 @@ function resetSession() {
   els.jumpHint.textContent = t('startHint');
   els.revealStatus.textContent = '';
   els.figureCards.replaceChildren();
-  els.reveal.disabled = true;
   updateSessionInfo();
 }
 
@@ -167,7 +168,6 @@ function drawJump() {
   els.jumpHint.textContent = t(selected.length === 1 ? 'rememberOne' : 'rememberMany');
   els.figureCards.replaceChildren();
   els.revealStatus.textContent = settings.delay ? t('appearing') : '';
-  els.reveal.disabled = false;
   updateSessionInfo();
   revealTimer = setTimeout(revealFigures, settings.delay);
 }
@@ -207,7 +207,6 @@ function revealFigures() {
   if (!selected.length) return;
   els.figureCards.replaceChildren(...selected.map(makeFigureCard));
   els.revealStatus.textContent = t(selected.length === 1 ? 'shownOne' : 'shownMany', { count: selected.length });
-  els.reveal.disabled = true;
 }
 
 function renderLibrary() {
@@ -254,7 +253,6 @@ async function start() {
     translatePage();
   });
   els.go.addEventListener('click', drawJump);
-  els.reveal.addEventListener('click', revealFigures);
   els.reset.addEventListener('click', resetSession);
   els.search.addEventListener('input', renderLibrary);
   els.filters.forEach(button => button.addEventListener('click', () => {

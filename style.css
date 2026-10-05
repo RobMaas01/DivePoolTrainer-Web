@@ -4,3 +4,51 @@
 @media(max-width:700px){.app-shell{padding:0 18px}.site-header{height:74px}.header-note{display:none}.intro{min-height:265px;padding:38px 0 30px}.intro-symbol{display:none}.intro-copy{font-size:15px}.tabs{gap:14px;justify-content:space-between}.tab{font-size:13px;padding:14px 3px}.view{padding:30px 0 55px}.section-heading{align-items:start;flex-direction:column;gap:13px}.training-card{padding:22px 19px 23px;min-height:300px;border-radius:17px}.training-topline{font-size:10px}.jump-display{margin-top:37px;font-size:clamp(36px,10vw,60px)}.training-actions{gap:9px}.primary-button,.secondary-button,.text-button{font-size:14px;padding:10px 15px}.figure-grid{grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:10px}.figure-card{padding:8px;border-radius:12px}.figure-card img{height:155px}.figure-name{font-size:12px}.figure-points{font-size:10px}.settings-card{padding:21px}.stat-line{font-size:11px}}
 @media(max-width:390px){.tabs{gap:5px}.tab{font-size:12px}.figure-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.figure-card img{height:140px}}
 .header-right{display:flex;align-items:center;gap:22px}.language-control select{max-width:155px;min-height:38px;border:1px solid #cbdad8;border-radius:9px;background:#fff;color:#173141;padding:6px 9px;font-size:13px;font-weight:700}.language-control select:focus-visible{outline:3px solid #ed9e4c;outline-offset:2px}@media(max-width:700px){.language-control select{max-width:130px;font-size:12px}.header-right{gap:0}}
+
+/* The training screen follows the fixed top / middle / bottom layout of the Android app. */
+.site-header{height:70px;padding:0 18px;margin:0 -32px;background:#2d4679;border:0;color:#fff}
+.brand,.brand small{color:#fff}.brand-mark{background:transparent;color:#fff;width:32px;height:32px}
+.language-control select{background:#2d4679;color:#fff;border-color:#8498bd}
+.tabs{height:49px;align-items:stretch;gap:28px;border-bottom:1px solid #445d8f;background:#2d4679;padding:0 18px;margin:0 -32px}
+.tab{color:#d2dcf0;padding:10px 5px;font-size:14px;border-bottom-width:3px}.tab:hover,.tab.is-active{color:#fff}.tab.is-active{border-bottom-color:#fff}
+body.training-mode{background:#6079ad;overflow:hidden}
+body.training-mode .app-shell{height:100dvh;display:flex;flex-direction:column}
+body.training-mode main{min-height:0;flex:1;display:flex;flex-direction:column}
+body.training-mode .tabs{flex:none}
+body.training-mode #train{height:100%;min-height:0;padding:0;display:grid;grid-template-rows:minmax(135px,28%) minmax(0,1fr) 112px;gap:0}
+body.training-mode .training-card{display:grid;grid-template-rows:26px minmax(0,1fr) 35px;min-height:0;padding:14px 12px 0;background:transparent;color:#111827;border-radius:0;box-shadow:none}
+body.training-mode .training-topline{display:flex;justify-content:center;color:#e8efff;font-size:13px;letter-spacing:.06em}
+body.training-mode .jump-display{align-self:center;text-align:center;font:500 clamp(40px,7.5vw,82px)/1.05 Arial,sans-serif;letter-spacing:-.035em;margin:0;max-height:100%;overflow:visible;color:#111827}
+body.training-mode .stat-line{justify-content:center;align-items:center;padding:0;color:#111827;font-size:clamp(17px,2.5vw,24px);font-weight:500;letter-spacing:0}
+body.training-mode .figure-stage{min-height:0;overflow:hidden;padding:7px 18px}
+body.training-mode .figure-grid{height:100%;display:flex;align-items:center;justify-content:center;gap:clamp(4px,1.5vw,18px)}
+body.training-mode .figure-card{flex:1 1 0;max-width:290px;min-width:0;height:100%;display:flex;align-items:center;justify-content:center;padding:0;border:0;border-radius:0;background:transparent;box-shadow:none;transform:none}
+body.training-mode .figure-card img{display:block;width:100%;height:100%;max-height:100%;object-fit:contain;border-radius:0;background:transparent}
+body.training-mode .figure-meta{display:none}
+body.training-mode .training-bottom{height:112px;position:relative;padding-bottom:env(safe-area-inset-bottom)}
+body.training-mode .training-actions{position:relative;height:100%;margin:0;display:block}
+body.training-mode #go-button{position:absolute;left:50%;top:18px;transform:translateX(-50%);width:clamp(130px,38vw,215px);height:72px;border-radius:999px;background:#2d4679;color:#fff;font:500 38px Arial,sans-serif}
+body.training-mode #go-button:hover:not(:disabled){background:#213962}
+body.training-mode #reset-button{position:absolute;right:9px;top:29px;width:52px;height:52px;padding:0;color:#fff;font:42px/1 Arial,sans-serif;text-align:center}
+body.training-mode #reset-button:hover{color:#fff}
+@media(max-width:700px){.site-header{height:64px;margin:0 -18px;padding:0 13px}.brand strong{font-size:14px}.brand small{font-size:10px}.tabs{margin:0 -18px;padding:0 13px;gap:12px}.tab{font-size:12px}body.training-mode #train{grid-template-rows:minmax(125px,26%) minmax(0,1fr) 105px}body.training-mode .training-bottom{height:105px}body.training-mode .figure-stage{padding:7px 10px}body.training-mode .jump-display{font-size:clamp(33px,8vw,52px)}body.training-mode #go-button{height:66px;font-size:35px}body.training-mode #reset-button{right:0;width:44px;height:44px;font-size:36px}}
+
+/* Keep the lookup and settings screens as direct as the original controls. */
+body:not(.training-mode){background:#6079ad;min-height:100dvh}
+body:not(.training-mode) .view{padding-top:32px}
+body:not(.training-mode) .section-heading h2{color:#111827}
+body:not(.training-mode) .pool-badge{color:#111827;border-color:#2d4679}
+.library-tools{margin-top:12px}
+.search-label input,.settings-card select{border-color:#2d4679;border-radius:5px}
+.filter{background:transparent;border-color:#2d4679;color:#172c52;border-radius:5px}.filter.is-active{background:#2d4679;border-color:#2d4679;color:#fff}
+.library-count{color:#172c52}
+.library-grid .figure-card{padding:0;border:0;border-radius:0;box-shadow:none;background:#fff}
+.library-grid .figure-card img{height:225px;border-radius:0}
+.library-grid .figure-meta{display:none}
+.settings-card{padding:0;background:transparent;border:0;border-radius:0;box-shadow:none}
+.settings-card label,.settings-card .range-heading output{color:#111827}
+.settings-card select{background:transparent}
+.settings-card .range-heading{margin-top:33px}
+.settings-card input[type=range]{accent-color:#2d4679}
+.settings-card .save-button{margin-top:45px;background:#2d4679;color:#fff;border-radius:999px;padding:12px 27px}
+.settings-card .save-button:hover{background:#213962}

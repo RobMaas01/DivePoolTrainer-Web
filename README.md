@@ -6,6 +6,7 @@ Een zelfstandige, responsieve webapp om de letters en formaties van formation sk
 
 - Vier oorspronkelijke dive pools: FS4 AAA, FS4 AAA ISR, FS8 Outdoor en FS8 Indoor.
 - Willekeurige sprongen zonder herhaling totdat de pool leeg is.
+- Vaste oefenindeling zoals de Android app: codes boven, figuren midden en GO onderaan op dezelfde plek.
 - Moeilijkheid van 1–5 punten en automatische figuurweergave na 0–5 seconden.
 - Figuurkaarten vergroten en figuren doorzoeken op code of naam.
 - Instellingen worden lokaal in de browser bewaard; er worden geen persoonsgegevens verzonden.
