@@ -58,6 +58,14 @@ body:not(.training-mode) .pool-badge{color:#111827;border-color:#2d4679}
 #dialog-caption{display:none}
 .app-credit{display:inline-block;margin-top:8px;font-size:14px;font-weight:700;letter-spacing:.05em;color:#2d4679}
 body.training-mode footer{display:none}
+body:not(.training-mode) #settings .settings-card{min-height:calc(100dvh - 205px);display:flex;flex-direction:column;justify-content:space-between}
+@media(max-width:700px){
+  body:not(.training-mode) #settings{padding-top:18px;padding-bottom:20px}
+  body:not(.training-mode) #settings .section-heading{margin-bottom:15px}
+  body:not(.training-mode) #settings .settings-card{min-height:0;display:block}
+  body:not(.training-mode) #settings .settings-card .range-heading{margin-top:20px}
+  body:not(.training-mode) #settings .settings-card .save-button{margin-top:28px}
+}
 
 /* Keep the training view compact and consistent across phone and laptop widths. */
 .app-shell{max-width:640px}
