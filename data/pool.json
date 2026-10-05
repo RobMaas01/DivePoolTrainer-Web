@@ -1,0 +1,709 @@
+{
+  "figures": [
+    {
+      "id": "FourWay_A",
+      "code": "A",
+      "name": "Unipod",
+      "image": "assets/fourway_a.png",
+      "points": 1
+    },
+    {
+      "id": "FourWay_B",
+      "code": "B",
+      "name": "Stairstep Diamond",
+      "image": "assets/fourway_b.png",
+      "points": 1
+    },
+    {
+      "id": "FourWay_C",
+      "code": "C",
+      "name": "Murphy Flake",
+      "image": "assets/fourway_c.png",
+      "points": 1
+    },
+    {
+      "id": "FourWay_D",
+      "code": "D",
+      "name": "Yuan",
+      "image": "assets/fourway_d.png",
+      "points": 1
+    },
+    {
+      "id": "FourWay_E",
+      "code": "E",
+      "name": "Meeker",
+      "image": "assets/fourway_e.png",
+      "points": 1
+    },
+    {
+      "id": "FourWay_F",
+      "code": "F",
+      "name": "Open Accordian",
+      "image": "assets/fourway_f.png",
+      "points": 1
+    },
+    {
+      "id": "FourWay_G",
+      "code": "G",
+      "name": "Cataccord",
+      "image": "assets/fourway_g.png",
+      "points": 1
+    },
+    {
+      "id": "FourWay_H",
+      "code": "H",
+      "name": "Bow",
+      "image": "assets/fourway_h.png",
+      "points": 1
+    },
+    {
+      "id": "FourWay_J",
+      "code": "J",
+      "name": "Donut",
+      "image": "assets/fourway_j.png",
+      "points": 1
+    },
+    {
+      "id": "FourWay_K",
+      "code": "K",
+      "name": "Hook",
+      "image": "assets/fourway_k.png",
+      "points": 1
+    },
+    {
+      "id": "FourWay_L",
+      "code": "L",
+      "name": "Adder",
+      "image": "assets/fourway_l.png",
+      "points": 1
+    },
+    {
+      "id": "FourWay_M",
+      "code": "M",
+      "name": "Star",
+      "image": "assets/fourway_m.png",
+      "points": 1
+    },
+    {
+      "id": "FourWay_N",
+      "code": "N",
+      "name": "Crank",
+      "image": "assets/fourway_n.png",
+      "points": 1
+    },
+    {
+      "id": "FourWay_O",
+      "code": "O",
+      "name": "Satellite",
+      "image": "assets/fourway_o.png",
+      "points": 1
+    },
+    {
+      "id": "FourWay_P",
+      "code": "P",
+      "name": "SideBody",
+      "image": "assets/fourway_p.png",
+      "points": 1
+    },
+    {
+      "id": "FourWay_Q",
+      "code": "Q",
+      "name": "Phalanx",
+      "image": "assets/fourway_q.png",
+      "points": 1
+    },
+    {
+      "id": "FourWay_1",
+      "code": "1",
+      "name": "Molar - Molar",
+      "image": "assets/fourway_1.png",
+      "points": 2
+    },
+    {
+      "id": "FourWay_2",
+      "code": "2",
+      "name": "Sidebody Donut - Side Flake Donut",
+      "image": "assets/fourway_2.png",
+      "points": 2
+    },
+    {
+      "id": "FourWay_3",
+      "code": "3",
+      "name": "Side Flake Opal - Turf",
+      "image": "assets/fourway_3.png",
+      "points": 2
+    },
+    {
+      "id": "FourWay_4",
+      "code": "4",
+      "name": "Monopod - Monopod",
+      "image": "assets/fourway_4.png",
+      "points": 2
+    },
+    {
+      "id": "FourWay_5",
+      "code": "5",
+      "name": "Opal - Opal",
+      "image": "assets/fourway_5.png",
+      "points": 2
+    },
+    {
+      "id": "FourWay_6",
+      "code": "6",
+      "name": "Stardian - Stardian",
+      "image": "assets/fourway_6.png",
+      "points": 2
+    },
+    {
+      "id": "FourWay_7",
+      "code": "7",
+      "name": "Sidebuddies - Sidebuddies",
+      "image": "assets/fourway_7.png",
+      "points": 2
+    },
+    {
+      "id": "FourWay_8",
+      "code": "8",
+      "name": "Canadian Tee - Canadian Tee",
+      "image": "assets/fourway_8.png",
+      "points": 2
+    },
+    {
+      "id": "FourWay_9",
+      "code": "9",
+      "name": "Cat+Accordian - Cat+Accordian",
+      "image": "assets/fourway_9.png",
+      "points": 2
+    },
+    {
+      "id": "FourWay_10",
+      "code": "10",
+      "name": "Diamond - Bunyip",
+      "image": "assets/fourway_10.png",
+      "points": 2
+    },
+    {
+      "id": "FourWay_11",
+      "code": "11",
+      "name": "Photon - Photon",
+      "image": "assets/fourway_11.png",
+      "points": 2
+    },
+    {
+      "id": "FourWay_12",
+      "code": "12",
+      "name": "Bundy - Bundy",
+      "image": "assets/fourway_12.png",
+      "points": 2
+    },
+    {
+      "id": "FourWay_13",
+      "code": "13",
+      "name": "Mixed Accordions - Mixed Accordions",
+      "image": "assets/fourway_13.png",
+      "points": 2
+    },
+    {
+      "id": "FourWay_14",
+      "code": "14",
+      "name": "Bipole - Bipole",
+      "image": "assets/fourway_14.png",
+      "points": 2
+    },
+    {
+      "id": "FourWay_15",
+      "code": "15",
+      "name": "Caterpillar - Caterpillar",
+      "image": "assets/fourway_15.png",
+      "points": 2
+    },
+    {
+      "id": "FourWay_16",
+      "code": "16",
+      "name": "Compressed - Box",
+      "image": "assets/fourway_16.png",
+      "points": 2
+    },
+    {
+      "id": "FourWay_17",
+      "code": "17",
+      "name": "Danish Tee- Murphy",
+      "image": "assets/fourway_17.png",
+      "points": 2
+    },
+    {
+      "id": "FourWay_18",
+      "code": "18",
+      "name": "Zircon - Zircon",
+      "image": "assets/fourway_18.png",
+      "points": 2
+    },
+    {
+      "id": "FourWay_19",
+      "code": "19",
+      "name": "Ritz - Icepick",
+      "image": "assets/fourway_19.png",
+      "points": 2
+    },
+    {
+      "id": "FourWay_20",
+      "code": "20",
+      "name": "Piver - Viper",
+      "image": "assets/fourway_20.png",
+      "points": 2
+    },
+    {
+      "id": "FourWay_21",
+      "code": "21",
+      "name": "Zig Zag - Marquis",
+      "image": "assets/fourway_21.png",
+      "points": 2
+    },
+    {
+      "id": "FourWay_22",
+      "code": "22",
+      "name": "Tee - Chinese Tee",
+      "image": "assets/fourway_22.png",
+      "points": 2
+    },
+    {
+      "id": "EightWay_A",
+      "code": "A",
+      "name": "Unipod",
+      "image": "assets/eightway_a.png",
+      "points": 1
+    },
+    {
+      "id": "EightWay_B",
+      "code": "B",
+      "name": "Stairstep Diamond",
+      "image": "assets/eightway_b.png",
+      "points": 1
+    },
+    {
+      "id": "EightWay_C",
+      "code": "C",
+      "name": "Murphy Flake",
+      "image": "assets/eightway_c.png",
+      "points": 1
+    },
+    {
+      "id": "EightWay_D",
+      "code": "D",
+      "name": "Yuan",
+      "image": "assets/eightway_d.png",
+      "points": 1
+    },
+    {
+      "id": "EightWay_E",
+      "code": "E",
+      "name": "Meeker",
+      "image": "assets/eightway_e.png",
+      "points": 1
+    },
+    {
+      "id": "EightWay_F",
+      "code": "F",
+      "name": "Open Accordian",
+      "image": "assets/eightway_f.png",
+      "points": 1
+    },
+    {
+      "id": "EightWay_G",
+      "code": "G",
+      "name": "Cataccord",
+      "image": "assets/eightway_g.png",
+      "points": 1
+    },
+    {
+      "id": "EightWay_H",
+      "code": "H",
+      "name": "Bow",
+      "image": "assets/eightway_h.png",
+      "points": 1
+    },
+    {
+      "id": "EightWay_J",
+      "code": "J",
+      "name": "Donut",
+      "image": "assets/eightway_j.png",
+      "points": 1
+    },
+    {
+      "id": "EightWay_K",
+      "code": "K",
+      "name": "Hook",
+      "image": "assets/eightway_k.png",
+      "points": 1
+    },
+    {
+      "id": "EightWay_L",
+      "code": "L",
+      "name": "Adder",
+      "image": "assets/eightway_l.png",
+      "points": 1
+    },
+    {
+      "id": "EightWay_M",
+      "code": "M",
+      "name": "Star",
+      "image": "assets/eightway_m.png",
+      "points": 1
+    },
+    {
+      "id": "EightWay_N",
+      "code": "N",
+      "name": "Crank",
+      "image": "assets/eightway_n.png",
+      "points": 1
+    },
+    {
+      "id": "EightWay_O",
+      "code": "O",
+      "name": "Satellite",
+      "image": "assets/eightway_o.png",
+      "points": 1
+    },
+    {
+      "id": "EightWay_P",
+      "code": "P",
+      "name": "SideBody",
+      "image": "assets/eightway_p.png",
+      "points": 1
+    },
+    {
+      "id": "EightWay_Q",
+      "code": "Q",
+      "name": "Phalanx",
+      "image": "assets/eightway_q.png",
+      "points": 1
+    },
+    {
+      "id": "EightWay_1",
+      "code": "1",
+      "name": "Molar - Molar",
+      "image": "assets/eightway_1.png",
+      "points": 2
+    },
+    {
+      "id": "EightWay_2",
+      "code": "2",
+      "name": "Sidebody Donut - Side Flake Donut",
+      "image": "assets/eightway_2.png",
+      "points": 2
+    },
+    {
+      "id": "EightWay_3",
+      "code": "3",
+      "name": "Side Flake Opal - Turf",
+      "image": "assets/eightway_3.png",
+      "points": 2
+    },
+    {
+      "id": "EightWay_4",
+      "code": "4",
+      "name": "Monopod - Monopod",
+      "image": "assets/eightway_4.png",
+      "points": 2
+    },
+    {
+      "id": "EightWay_5",
+      "code": "5",
+      "name": "Opal - Opal",
+      "image": "assets/eightway_5.png",
+      "points": 2
+    },
+    {
+      "id": "EightWay_6",
+      "code": "6",
+      "name": "Stardian - Stardian",
+      "image": "assets/eightway_6.png",
+      "points": 2
+    },
+    {
+      "id": "EightWay_7",
+      "code": "7",
+      "name": "Sidebuddies - Sidebuddies",
+      "image": "assets/eightway_7.png",
+      "points": 2
+    },
+    {
+      "id": "EightWay_8",
+      "code": "8",
+      "name": "Canadian Tee - Canadian Tee",
+      "image": "assets/eightway_8.png",
+      "points": 2
+    },
+    {
+      "id": "EightWay_9",
+      "code": "9",
+      "name": "Cat+Accordian - Cat+Accordian",
+      "image": "assets/eightway_9.png",
+      "points": 2
+    },
+    {
+      "id": "EightWay_10",
+      "code": "10",
+      "name": "Diamond - Bunyip",
+      "image": "assets/eightway_10.png",
+      "points": 2
+    },
+    {
+      "id": "EightWay_11",
+      "code": "11",
+      "name": "Photon - Photon",
+      "image": "assets/eightway_11.png",
+      "points": 2
+    },
+    {
+      "id": "EightWay_12",
+      "code": "12",
+      "name": "Bundy - Bundy",
+      "image": "assets/eightway_12.png",
+      "points": 2
+    },
+    {
+      "id": "EightWay_13",
+      "code": "13",
+      "name": "Mixed Accordions - Mixed Accordions",
+      "image": "assets/eightway_13.png",
+      "points": 2
+    },
+    {
+      "id": "EightWay_14",
+      "code": "14",
+      "name": "Bipole - Bipole",
+      "image": "assets/eightway_14.png",
+      "points": 2
+    },
+    {
+      "id": "EightWay_15",
+      "code": "15",
+      "name": "Caterpillar - Caterpillar",
+      "image": "assets/eightway_15.png",
+      "points": 2
+    },
+    {
+      "id": "EightWay_16",
+      "code": "16",
+      "name": "Compressed - Box",
+      "image": "assets/eightway_16.png",
+      "points": 2
+    },
+    {
+      "id": "EightWay_17Indoor",
+      "code": "17",
+      "name": "Danish Tee- Murphy",
+      "image": "assets/eightway_17indoor.png",
+      "points": 2
+    },
+    {
+      "id": "EightWay_17Outdoor",
+      "code": "17",
+      "name": "Danish Tee- Murphy",
+      "image": "assets/eightway_17outdoor.png",
+      "points": 2
+    },
+    {
+      "id": "EightWay_18",
+      "code": "18",
+      "name": "Zircon - Zircon",
+      "image": "assets/eightway_18.png",
+      "points": 2
+    },
+    {
+      "id": "EightWay_19",
+      "code": "19",
+      "name": "Ritz - Icepick",
+      "image": "assets/eightway_19.png",
+      "points": 2
+    },
+    {
+      "id": "EightWay_20Indoor",
+      "code": "20",
+      "name": "Piver - Viper",
+      "image": "assets/eightway_20indoor.png",
+      "points": 2
+    },
+    {
+      "id": "EightWay_20Outdoor",
+      "code": "20",
+      "name": "Piver - Viper",
+      "image": "assets/eightway_20outdoor.png",
+      "points": 2
+    },
+    {
+      "id": "EightWay_21",
+      "code": "21",
+      "name": "Zig Zag - Marquis",
+      "image": "assets/eightway_21.png",
+      "points": 2
+    },
+    {
+      "id": "EightWay_22",
+      "code": "22",
+      "name": "Tee - Chinese Tee",
+      "image": "assets/eightway_22.png",
+      "points": 2
+    }
+  ],
+  "pools": {
+    "FS4 AAA": [
+      "FourWay_A",
+      "FourWay_B",
+      "FourWay_C",
+      "FourWay_D",
+      "FourWay_E",
+      "FourWay_F",
+      "FourWay_G",
+      "FourWay_H",
+      "FourWay_J",
+      "FourWay_K",
+      "FourWay_L",
+      "FourWay_M",
+      "FourWay_N",
+      "FourWay_O",
+      "FourWay_P",
+      "FourWay_Q",
+      "FourWay_1",
+      "FourWay_2",
+      "FourWay_3",
+      "FourWay_4",
+      "FourWay_5",
+      "FourWay_6",
+      "FourWay_7",
+      "FourWay_8",
+      "FourWay_9",
+      "FourWay_10",
+      "FourWay_11",
+      "FourWay_12",
+      "FourWay_13",
+      "FourWay_14",
+      "FourWay_15",
+      "FourWay_16",
+      "FourWay_17",
+      "FourWay_18",
+      "FourWay_19",
+      "FourWay_20",
+      "FourWay_21",
+      "FourWay_22"
+    ],
+    "FS4 AAA ISR": [
+      "FourWay_A",
+      "FourWay_B",
+      "FourWay_C",
+      "FourWay_D",
+      "FourWay_E",
+      "FourWay_F",
+      "FourWay_G",
+      "FourWay_H",
+      "FourWay_J",
+      "FourWay_K",
+      "FourWay_L",
+      "FourWay_M",
+      "FourWay_N",
+      "FourWay_O",
+      "FourWay_P",
+      "FourWay_Q",
+      "FourWay_1",
+      "FourWay_2",
+      "FourWay_3",
+      "FourWay_5",
+      "FourWay_6",
+      "FourWay_7",
+      "FourWay_9",
+      "FourWay_10",
+      "FourWay_11",
+      "FourWay_12",
+      "FourWay_13",
+      "FourWay_14",
+      "FourWay_15",
+      "FourWay_16",
+      "FourWay_17",
+      "FourWay_18",
+      "FourWay_19",
+      "FourWay_21",
+      "FourWay_22"
+    ],
+    "FS8 Outdoor": [
+      "EightWay_A",
+      "EightWay_B",
+      "EightWay_C",
+      "EightWay_D",
+      "EightWay_E",
+      "EightWay_F",
+      "EightWay_G",
+      "EightWay_H",
+      "EightWay_J",
+      "EightWay_K",
+      "EightWay_L",
+      "EightWay_M",
+      "EightWay_N",
+      "EightWay_O",
+      "EightWay_P",
+      "EightWay_Q",
+      "EightWay_1",
+      "EightWay_2",
+      "EightWay_3",
+      "EightWay_4",
+      "EightWay_5",
+      "EightWay_6",
+      "EightWay_7",
+      "EightWay_8",
+      "EightWay_9",
+      "EightWay_10",
+      "EightWay_11",
+      "EightWay_12",
+      "EightWay_13",
+      "EightWay_14",
+      "EightWay_15",
+      "EightWay_16",
+      "EightWay_17Outdoor",
+      "EightWay_18",
+      "EightWay_19",
+      "EightWay_20Outdoor",
+      "EightWay_21",
+      "EightWay_22"
+    ],
+    "FS8 Indoor": [
+      "EightWay_A",
+      "EightWay_B",
+      "EightWay_C",
+      "EightWay_D",
+      "EightWay_E",
+      "EightWay_F",
+      "EightWay_G",
+      "EightWay_H",
+      "EightWay_J",
+      "EightWay_K",
+      "EightWay_L",
+      "EightWay_M",
+      "EightWay_N",
+      "EightWay_O",
+      "EightWay_P",
+      "EightWay_Q",
+      "EightWay_1",
+      "EightWay_2",
+      "EightWay_3",
+      "EightWay_4",
+      "EightWay_5",
+      "EightWay_6",
+      "EightWay_7",
+      "EightWay_8",
+      "EightWay_9",
+      "EightWay_10",
+      "EightWay_11",
+      "EightWay_12",
+      "EightWay_13",
+      "EightWay_14",
+      "EightWay_15",
+      "EightWay_16",
+      "EightWay_17Indoor",
+      "EightWay_18",
+      "EightWay_19",
+      "EightWay_20Indoor",
+      "EightWay_21",
+      "EightWay_22"
+    ]
+  }
+}

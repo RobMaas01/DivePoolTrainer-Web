@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#102b3b" />
+    <meta name="description" content="Leer de letters en formaties van het formation skydiving wedstrijdprogramma." />
+    <link rel="icon" href="./icon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Dive Pool Trainer</title>
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="site-header">
+        <a class="brand" href="./" aria-label="Dive Pool Trainer, begin">
+          <span class="brand-mark" aria-hidden="true">✦</span>
+          <span><strong>DIVE POOL</strong><small>TRAINER</small></span>
+        </a>
+        <span class="header-note">FORMATION SKYDIVING · MEMORY TRAINING</span>
+      </header>
+
+      <main>
+        <section class="intro">
+          <div>
+            <p class="eyebrow">TRAIN JE WEDSTRIJDGEHEUGEN</p>
+            <h1>Zie de code.<br /><em>Ken de sprong.</em></h1>
+            <p class="intro-copy">Oefen de letters, blokken en figuren van jouw dive pool. Op je telefoon, tablet of computer.</p>
+          </div>
+          <div class="intro-symbol" aria-hidden="true"><span>4</span><i>↗</i><span>8</span></div>
+        </section>
+
+        <nav class="tabs" aria-label="Onderdelen">
+          <button type="button" class="tab is-active" data-tab="train" aria-current="page">Oefenen</button>
+          <button type="button" class="tab" data-tab="library">Figurenoverzicht</button>
+          <button type="button" class="tab" data-tab="settings">Instellingen</button>
+        </nav>
+
+        <section id="train" class="view" aria-labelledby="train-heading">
+          <div class="section-heading">
+            <div><p class="eyebrow">01 / OEFENEN</p><h2 id="train-heading">Jouw volgende sprong</h2></div>
+            <span class="pool-badge" id="active-pool"></span>
+          </div>
+          <div class="training-card">
+            <div class="training-topline"><span>WILLEKEURIGE COMBINATIE</span><span id="round-count">Ronde 0</span></div>
+            <div class="jump-display" id="jump-display" aria-live="polite">Klaar voor de start</div>
+            <p class="jump-hint" id="jump-hint">Druk op GO om een nieuwe combinatie te krijgen.</p>
+            <div class="training-actions">
+              <button type="button" class="primary-button" id="go-button">GO <span aria-hidden="true">↗</span></button>
+              <button type="button" class="secondary-button" id="reveal-button" disabled>Toon figuren</button>
+              <button type="button" class="text-button" id="reset-button">Pool opnieuw starten</button>
+            </div>
+          </div>
+          <div class="stat-line"><span id="remaining-count">38 figuren over</span><span id="points-label">Doel: 5 punten</span></div>
+          <div id="reveal-status" class="reveal-status" role="status"></div>
+          <div id="figure-cards" class="figure-grid" aria-live="polite"></div>
+        </section>
+
+        <section id="library" class="view" aria-labelledby="library-heading" hidden>
+          <div class="section-heading">
+            <div><p class="eyebrow">02 / LEREN</p><h2 id="library-heading">Figurenoverzicht</h2></div>
+            <span class="pool-badge" id="library-pool"></span>
+          </div>
+          <p class="section-copy">Bekijk de naam en de tekening van iedere letter en ieder blok in de gekozen pool.</p>
+          <div class="library-tools">
+            <label class="search-label"><span class="sr-only">Zoek figuur of naam</span><input id="search-input" type="search" placeholder="Zoek code of naam…" autocomplete="off" /></label>
+            <div class="filter-buttons" aria-label="Filter figuren">
+              <button type="button" class="filter is-active" data-filter="all">Alles</button>
+              <button type="button" class="filter" data-filter="random">Letters</button>
+              <button type="button" class="filter" data-filter="block">Blokken</button>
+            </div>
+          </div>
+          <p id="library-count" class="library-count"></p>
+          <div id="library-grid" class="figure-grid library-grid"></div>
+        </section>
+
+        <section id="settings" class="view" aria-labelledby="settings-heading" hidden>
+          <div class="section-heading"><div><p class="eyebrow">03 / INSTELLINGEN</p><h2 id="settings-heading">Maak het jouw training</h2></div></div>
+          <div class="settings-card">
+            <label for="pool-select">Dive pool</label>
+            <select id="pool-select"><option>FS4 AAA</option><option>FS4 AAA ISR</option><option>FS8 Outdoor</option><option>FS8 Indoor</option></select>
+            <p class="field-help">Een andere pool begint een nieuwe oefensessie.</p>
+
+            <div class="range-heading"><label for="points-range">Moeilijkheid</label><output id="points-output" for="points-range">5 punten</output></div>
+            <input id="points-range" type="range" min="1" max="5" step="1" value="5" />
+            <p class="field-help">De combinatie loopt door tot dit aantal punten is bereikt. Een blok telt voor twee.</p>
+
+            <div class="range-heading"><label for="delay-range">Vertraging figuren</label><output id="delay-output" for="delay-range">2,0 seconden</output></div>
+            <input id="delay-range" type="range" min="0" max="5000" step="100" value="2000" />
+            <p class="field-help">Na deze tijd verschijnen de afbeeldingen vanzelf. Met “Toon figuren” kun je ze eerder zien.</p>
+            <button type="button" class="primary-button save-button" id="save-button">Instellingen opslaan</button>
+          </div>
+        </section>
+      </main>
+      <footer>Train zelfstandig · Geen account nodig · Werkt ook offline na het eerste bezoek</footer>
+    </div>
+
+    <dialog id="figure-dialog" class="figure-dialog" aria-label="Vergrote figuur">
+      <button type="button" class="dialog-close" id="dialog-close" aria-label="Sluiten">×</button>
+      <img id="dialog-image" alt="" />
+      <p id="dialog-caption"></p>
+    </dialog>
+  </body>
+</html>
