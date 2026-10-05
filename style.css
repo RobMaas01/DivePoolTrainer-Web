@@ -61,10 +61,12 @@ body.training-mode footer{display:none}
 body:not(.training-mode) #settings .settings-card{min-height:calc(100dvh - 205px);display:flex;flex-direction:column;justify-content:space-between}
 @media(max-width:700px){
   body:not(.training-mode) #settings{padding-top:18px;padding-bottom:20px}
-  body:not(.training-mode) #settings .section-heading{margin-bottom:15px}
+  body:not(.training-mode):has(#settings:not([hidden])) footer{display:none}
+  body:not(.training-mode) #settings .section-heading{margin-bottom:10px}
   body:not(.training-mode) #settings .settings-card{min-height:0;display:block}
-  body:not(.training-mode) #settings .settings-card .range-heading{margin-top:20px}
-  body:not(.training-mode) #settings .settings-card .save-button{margin-top:28px}
+  body:not(.training-mode) #settings .settings-card .range-heading{margin-top:12px}
+  body:not(.training-mode) #settings .settings-card select{min-height:42px;padding:9px 11px}
+  body:not(.training-mode) #settings .settings-card .save-button{margin-top:16px}
 }
 
 /* Keep the training view compact and consistent across phone and laptop widths. */
