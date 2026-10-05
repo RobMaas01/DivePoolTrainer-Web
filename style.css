@@ -57,7 +57,7 @@ body:not(.training-mode) .pool-badge{color:#111827;border-color:#2d4679}
 
 /* Keep the training view compact and consistent across phone and laptop widths. */
 .app-shell{max-width:640px}
-body.training-mode #train{grid-template-rows:100px minmax(0,1fr) 105px}
+body.training-mode #train{grid-template-rows:125px minmax(0,1fr) 105px}
 body.training-mode .training-card{grid-template-rows:20px minmax(0,1fr) 24px;padding:7px 12px 0}
 body.training-mode .jump-display{font-size:clamp(36px,7vw,64px)}
 body.training-mode .stat-line{font-size:clamp(15px,2.2vw,20px)}
