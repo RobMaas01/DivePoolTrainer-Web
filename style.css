@@ -71,4 +71,5 @@ body.training-mode .training-bottom{height:105px}
   body.training-mode .jump-display{font-size:clamp(32px,8vw,52px)}
   body.training-mode .stat-line{font-size:17px}
   body.training-mode .training-bottom{height:100px}
+  body.training-mode .figure-stage{padding:7px 3px}
 }
