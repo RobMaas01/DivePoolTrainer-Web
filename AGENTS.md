@@ -16,6 +16,7 @@
 - The figure overview uses `RANDOM POOL` and `BLOCK POOL` filters.
 - Do not add explanatory copy or incorrect figure names to the training flow.
 - Do not show a duplicate code below an enlarged figure.
+- Keep the small `Made by Rob Maas` credit in the non-training footer.
 
 ## Local verification
 
