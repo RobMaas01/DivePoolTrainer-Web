@@ -84,6 +84,7 @@ function readSettings() {
 
 function openTab(name) {
   document.body.classList.toggle('training-mode', name === 'train');
+  document.body.classList.toggle('footer-mode', name === 'library' || name === 'settings');
   els.views.forEach(view => { view.hidden = view.id !== name; });
   els.tabs.forEach(tab => {
     const active = tab.dataset.tab === name;
