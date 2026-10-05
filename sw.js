@@ -1,5 +1,5 @@
-const CACHE_NAME = 'dive-pool-trainer-v1';
-const CORE = ['./', './index.html', './style.css', './app.js', './icon.svg', './manifest.webmanifest', './data/pool.json'];
+const CACHE_NAME = 'dive-pool-trainer-v2';
+const CORE = ['./', './index.html', './style.css', './i18n.js', './app.js', './icon.svg', './manifest.webmanifest', './data/pool.json'];
 
 self.addEventListener('install', event => {
   event.waitUntil((async () => {

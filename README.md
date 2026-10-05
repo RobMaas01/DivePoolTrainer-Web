@@ -10,6 +10,7 @@ Een zelfstandige, responsieve webapp om de letters en formaties van formation sk
 - Figuurkaarten vergroten en figuren doorzoeken op code of naam.
 - Instellingen worden lokaal in de browser bewaard; er worden geen persoonsgegevens verzonden.
 - Werkt offline nadat de site een keer volledig is geladen.
+- Engels is de standaardtaal. De interface is ook beschikbaar in Nederlands, Vlaams Nederlands (België), Frans, Duits en Oekraïens. De taalkeuze blijft lokaal bewaard. Officiële figuurnamen blijven in het Engels.
 
 De figuurgegevens en 78 afbeeldingen zijn overgenomen uit de oorspronkelijke Android app in `Ontwikkel/DivePoolTrainer`. `python tools/import_pool.py` kan deze gegevens opnieuw importeren als beide projectmappen naast elkaar staan. Geef anders het pad naar de Android bron als argument mee. De oorspronkelijke Android bron is niet aangepast.
 

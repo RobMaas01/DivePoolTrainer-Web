@@ -1,7 +1,28 @@
 const STORAGE_KEY = 'dive-pool-trainer-settings-v1';
+const LANGUAGE_KEY = 'dive-pool-trainer-language-v1';
 const DEFAULT_SETTINGS = { pool: 'FS4 AAA', points: 5, delay: 2000 };
+const TRANSLATIONS = window.DivePoolI18n.TRANSLATIONS;
+let language = 'en';
+
+function t(key, variables = {}) {
+  const template = TRANSLATIONS[language][key] || TRANSLATIONS.en[key] || key;
+  return template.replace(/\{(\w+)\}/g, (_, name) => String(variables[name] ?? ''));
+}
+
+function pointText(points) {
+  if (language === 'uk' && points >= 2 && points <= 4) return t('fewPoints', { count: points });
+  return t(points === 1 ? 'onePoint' : 'manyPoints', { count: points });
+}
+
+function loadLanguage() {
+  try {
+    const saved = localStorage.getItem(LANGUAGE_KEY);
+    return saved && TRANSLATIONS[saved] ? saved : 'en';
+  } catch { return 'en'; }
+}
 
 const els = {
+  language: document.querySelector('#language-select'),
   tabs: [...document.querySelectorAll('[data-tab]')],
   views: [...document.querySelectorAll('.view')],
   activePool: document.querySelector('#active-pool'),
@@ -74,8 +95,35 @@ function syncSettingsForm() {
 }
 
 function updateOutputs() {
-  els.pointsOutput.value = `${els.pointsRange.value} ${els.pointsRange.value === '1' ? 'punt' : 'punten'}`;
-  els.delayOutput.value = `${(Number(els.delayRange.value) / 1000).toFixed(1).replace('.', ',')} seconden`;
+  els.pointsOutput.value = pointText(Number(els.pointsRange.value));
+  const count = new Intl.NumberFormat(language, { minimumFractionDigits: 1, maximumFractionDigits: 1 }).format(Number(els.delayRange.value) / 1000);
+  els.delayOutput.value = t('seconds', { count });
+}
+
+function translatePage() {
+  document.documentElement.lang = language;
+  els.language.value = language;
+  document.querySelectorAll('[data-i18n]').forEach(element => { element.textContent = t(element.dataset.i18n); });
+  els.search.placeholder = t('searchPlaceholder');
+  els.search.setAttribute('aria-label', t('searchLabel'));
+  document.querySelector('.tabs').setAttribute('aria-label', t('sectionsLabel'));
+  document.querySelector('.filter-buttons').setAttribute('aria-label', t('filterLabel'));
+  document.querySelector('.brand').setAttribute('aria-label', t('homeLabel'));
+  els.language.setAttribute('aria-label', t('languageLabel'));
+  els.dialog.setAttribute('aria-label', t('enlargedFigure'));
+  els.dialogClose.setAttribute('aria-label', t('close'));
+  updateOutputs();
+  updateSessionInfo();
+  if (!selected.length) {
+    els.jumpDisplay.textContent = t('ready');
+    els.jumpHint.textContent = t('startHint');
+  } else {
+    els.jumpHint.textContent = remaining.length ? t(selected.length === 1 ? 'rememberOne' : 'rememberMany') : t('poolFinished');
+    if (els.figureCards.childElementCount) els.revealStatus.textContent = t(selected.length === 1 ? 'shownOne' : 'shownMany', { count: selected.length });
+    else els.revealStatus.textContent = t('appearing');
+    els.figureCards.replaceChildren(...(els.figureCards.childElementCount ? selected.map(makeFigureCard) : []));
+  }
+  if (!document.querySelector('#library').hidden) renderLibrary();
 }
 
 function resetSession() {
@@ -83,8 +131,8 @@ function resetSession() {
   remaining = [...pools[settings.pool]];
   selected = [];
   rounds = 0;
-  els.jumpDisplay.textContent = 'Klaar voor de start';
-  els.jumpHint.textContent = 'Druk op GO om een nieuwe combinatie te krijgen.';
+  els.jumpDisplay.textContent = t('ready');
+  els.jumpHint.textContent = t('startHint');
   els.revealStatus.textContent = '';
   els.figureCards.replaceChildren();
   els.reveal.disabled = true;
@@ -94,12 +142,12 @@ function resetSession() {
 function updateSessionInfo() {
   els.activePool.textContent = settings.pool;
   els.libraryPool.textContent = settings.pool;
-  els.roundCount.textContent = `Ronde ${rounds}`;
-  els.remaining.textContent = `${remaining.length} figuren over`;
-  els.pointsLabel.textContent = `Doel: ${settings.points} ${settings.points === 1 ? 'punt' : 'punten'}`;
+  els.roundCount.textContent = t('round', { count: rounds });
+  els.remaining.textContent = t('remaining', { count: remaining.length });
+  els.pointsLabel.textContent = t('target', { points: pointText(settings.points) });
   els.go.disabled = remaining.length === 0;
   if (remaining.length === 0 && rounds > 0) {
-    els.jumpHint.textContent = 'Pool voltooid. Start opnieuw voor een nieuwe reeks.';
+    els.jumpHint.textContent = t('poolFinished');
   }
 }
 
@@ -116,9 +164,9 @@ function drawJump() {
   }
   rounds += 1;
   els.jumpDisplay.textContent = selected.map(item => item.code).join(' – ');
-  els.jumpHint.textContent = `Onthoud de figuren achter deze ${selected.length === 1 ? 'code' : 'codes'}.`;
+  els.jumpHint.textContent = t(selected.length === 1 ? 'rememberOne' : 'rememberMany');
   els.figureCards.replaceChildren();
-  els.revealStatus.textContent = settings.delay ? 'De figuren verschijnen zo…' : '';
+  els.revealStatus.textContent = settings.delay ? t('appearing') : '';
   els.reveal.disabled = false;
   updateSessionInfo();
   revealTimer = setTimeout(revealFigures, settings.delay);
@@ -128,7 +176,7 @@ function makeFigureCard(item) {
   const button = document.createElement('button');
   button.type = 'button';
   button.className = 'figure-card';
-  button.setAttribute('aria-label', `${item.code}: ${item.name}. Vergroot figuur.`);
+  button.setAttribute('aria-label', t('enlarge', { code: item.code, name: item.name }));
 
   const image = document.createElement('img');
   image.src = `./${item.image}`;
@@ -147,7 +195,7 @@ function makeFigureCard(item) {
   title.append(code, name);
   const points = document.createElement('span');
   points.className = 'figure-points';
-  points.textContent = item.points === 1 ? '1 punt' : '2 punten';
+  points.textContent = pointText(item.points);
   meta.append(title, points);
   button.append(image, meta);
   button.addEventListener('click', () => showFigure(item));
@@ -158,7 +206,7 @@ function revealFigures() {
   clearTimeout(revealTimer);
   if (!selected.length) return;
   els.figureCards.replaceChildren(...selected.map(makeFigureCard));
-  els.revealStatus.textContent = `${selected.length} ${selected.length === 1 ? 'figuur' : 'figuren'} getoond. Tik op een afbeelding om te vergroten.`;
+  els.revealStatus.textContent = t(selected.length === 1 ? 'shownOne' : 'shownMany', { count: selected.length });
   els.reveal.disabled = true;
 }
 
@@ -168,7 +216,7 @@ function renderLibrary() {
     .map(id => figures.get(id))
     .filter(item => filter === 'all' || (filter === 'random' ? item.points === 1 : item.points === 2))
     .filter(item => `${item.code} ${item.name}`.toLocaleLowerCase().includes(query));
-  els.libraryCount.textContent = `${items.length} van ${pools[settings.pool].length} figuren`;
+  els.libraryCount.textContent = t('libraryCount', { count: items.length, total: pools[settings.pool].length });
   els.libraryGrid.replaceChildren(...items.map(makeFigureCard));
 }
 
@@ -187,17 +235,24 @@ async function start() {
     figures = new Map(data.figures.map(item => [item.id, item]));
     pools = data.pools;
     settings = readSettings();
+    language = loadLanguage();
     resetSession();
     syncSettingsForm();
+    translatePage();
   } catch (error) {
-    els.jumpDisplay.textContent = 'Laden mislukt';
-    els.jumpHint.textContent = 'Vernieuw de pagina wanneer je weer verbinding hebt.';
+    els.jumpDisplay.textContent = t('loadingFailed');
+    els.jumpHint.textContent = t('loadingHint');
     els.go.disabled = true;
     console.error('Dive pool kon niet worden geladen:', error);
     return;
   }
 
   els.tabs.forEach(tab => tab.addEventListener('click', () => openTab(tab.dataset.tab)));
+  els.language.addEventListener('change', () => {
+    language = els.language.value;
+    try { localStorage.setItem(LANGUAGE_KEY, language); } catch { /* Browser storage can be disabled. */ }
+    translatePage();
+  });
   els.go.addEventListener('click', drawJump);
   els.reveal.addEventListener('click', revealFigures);
   els.reset.addEventListener('click', resetSession);
