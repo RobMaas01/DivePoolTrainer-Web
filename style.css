@@ -54,3 +54,21 @@ body:not(.training-mode) .pool-badge{color:#111827;border-color:#2d4679}
 .settings-card .save-button:hover{background:#213962}
 .brand strong{letter-spacing:.1em}
 @media(max-width:700px){.brand strong{font-size:12px}.brand small{font-size:10px}}
+
+/* Keep the training view compact and consistent across phone and laptop widths. */
+.app-shell{max-width:640px}
+body.training-mode #train{grid-template-rows:100px minmax(0,1fr) 105px}
+body.training-mode .training-card{grid-template-rows:20px minmax(0,1fr) 24px;padding:7px 12px 0}
+body.training-mode .jump-display{font-size:clamp(36px,7vw,64px)}
+body.training-mode .stat-line{font-size:clamp(15px,2.2vw,20px)}
+body.training-mode .figure-grid{align-items:flex-start}
+body.training-mode .figure-card{height:auto;align-self:flex-start;display:block}
+body.training-mode .figure-card img{height:auto;max-height:none;aspect-ratio:auto;object-fit:contain;align-self:flex-start}
+body.training-mode .training-bottom{height:105px}
+@media(max-width:700px){
+  body.training-mode #train{grid-template-rows:90px minmax(0,1fr) 100px}
+  body.training-mode .training-card{grid-template-rows:18px minmax(0,1fr) 22px;padding:5px 10px 0}
+  body.training-mode .jump-display{font-size:clamp(32px,8vw,52px)}
+  body.training-mode .stat-line{font-size:17px}
+  body.training-mode .training-bottom{height:100px}
+}

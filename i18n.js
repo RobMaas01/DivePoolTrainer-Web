@@ -56,9 +56,18 @@ const LEVEL_LABELS = {
   uk: ['Початківець · 1 рандом або блок', 'Середній · 3–4 фігури', 'Експерт · 5–6 фігур'],
 };
 
+const REMAINING_LABELS = {
+  en: 'Remaining: {count}',
+  nl: 'Resterend: {count}',
+  'nl-BE': 'Resterend: {count}',
+  fr: 'Restant : {count}',
+  de: 'Verbleibend: {count}',
+  uk: 'Залишилось: {count}',
+};
+
 for (const [locale, dictionary] of Object.entries(DICTIONARIES)) {
   dictionary.ready = 'Ready-set';
-  dictionary.remaining = 'Rest:{count}';
+  dictionary.remaining = REMAINING_LABELS[locale];
   dictionary.homeLabel = dictionary.homeLabel.replace('Dive Pool Trainer', 'QRF2 DIVE POOL trainer');
   [dictionary.levelBeginner, dictionary.levelIntermediate, dictionary.levelExpert] = LEVEL_LABELS[locale];
 }

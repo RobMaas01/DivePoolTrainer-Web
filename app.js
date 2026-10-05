@@ -41,7 +41,6 @@ const els = {
   levelLabel: document.querySelector('#level-label'),
   revealStatus: document.querySelector('#reveal-status'),
   figureCards: document.querySelector('#figure-cards'),
-  search: document.querySelector('#search-input'),
   filters: [...document.querySelectorAll('[data-filter]')],
   libraryCount: document.querySelector('#library-count'),
   libraryGrid: document.querySelector('#library-grid'),
@@ -109,8 +108,6 @@ function translatePage() {
   document.documentElement.lang = language;
   els.language.value = language;
   document.querySelectorAll('[data-i18n]').forEach(element => { element.textContent = t(element.dataset.i18n); });
-  els.search.placeholder = t('searchPlaceholder');
-  els.search.setAttribute('aria-label', t('searchLabel'));
   document.querySelector('.tabs').setAttribute('aria-label', t('sectionsLabel'));
   document.querySelector('.filter-buttons').setAttribute('aria-label', t('filterLabel'));
   document.querySelector('.brand').setAttribute('aria-label', t('homeLabel'));
@@ -215,11 +212,9 @@ function revealFigures() {
 }
 
 function renderLibrary() {
-  const query = els.search.value.trim().toLocaleLowerCase();
   const items = pools[settings.pool]
     .map(id => figures.get(id))
     .filter(item => filter === 'all' || (filter === 'random' ? item.points === 1 : item.points === 2))
-    .filter(item => `${item.code} ${item.name}`.toLocaleLowerCase().includes(query));
   els.libraryCount.textContent = t('libraryCount', { count: items.length, total: pools[settings.pool].length });
   els.libraryGrid.replaceChildren(...items.map(makeFigureCard));
 }
@@ -259,7 +254,6 @@ async function start() {
   });
   els.go.addEventListener('click', drawJump);
   els.reset.addEventListener('click', resetSession);
-  els.search.addEventListener('input', renderLibrary);
   els.filters.forEach(button => button.addEventListener('click', () => {
     filter = button.dataset.filter;
     els.filters.forEach(item => item.classList.toggle('is-active', item === button));
