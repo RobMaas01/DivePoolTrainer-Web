@@ -11,8 +11,9 @@
 .language-control select{background:#2d4679;color:#fff;border-color:#8498bd}
 .tabs{height:49px;align-items:stretch;gap:28px;border-bottom:1px solid #445d8f;background:#2d4679;padding:0 18px;margin:0 -32px}
 .tab{color:#d2dcf0;padding:10px 5px;font-size:14px;border-bottom-width:3px}.tab:hover,.tab.is-active{color:#fff}.tab.is-active{border-bottom-color:#fff}
-body.training-mode{background:#6079ad;overflow:hidden}
+body.training-mode{background:#536da2;overflow:hidden}
 body.training-mode .app-shell{height:100dvh;display:flex;flex-direction:column}
+body.training-mode .app-shell{background:#6079ad}
 body.training-mode main{min-height:0;flex:1;display:flex;flex-direction:column}
 body.training-mode .tabs{flex:none}
 body.training-mode #train{height:100%;min-height:0;padding:0;display:grid;grid-template-rows:minmax(135px,28%) minmax(0,1fr) 112px;gap:0}
@@ -66,6 +67,9 @@ body.training-mode .figure-card{height:auto;align-self:flex-start;display:block}
 body.training-mode .figure-card img{height:auto;max-height:none;aspect-ratio:auto;object-fit:contain;align-self:flex-start}
 body.training-mode .training-bottom{height:105px}
 @media(max-width:700px){
+  body.training-mode .app-shell{padding-left:8px;padding-right:8px}
+  body.training-mode .site-header{margin-left:-8px;margin-right:-8px}
+  body.training-mode .tabs{margin-left:-8px;margin-right:-8px}
   body.training-mode #train{grid-template-rows:90px minmax(0,1fr) 100px}
   body.training-mode .training-card{grid-template-rows:18px minmax(0,1fr) 22px;padding:5px 10px 0}
   body.training-mode .jump-display{font-size:clamp(32px,8vw,52px)}
