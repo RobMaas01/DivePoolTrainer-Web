@@ -93,6 +93,6 @@ body.training-mode .training-bottom{height:105px}
   body.training-mode .stat-line{font-size:17px}
   body.training-mode .training-bottom{height:100px}
   body.training-mode .figure-stage{padding:7px 3px}
-  body.training-mode #go-button{top:-8px;height:58px;font-size:32px}
+  body.training-mode #go-button{top:-16px;height:58px;font-size:32px}
   body.training-mode #reset-button{top:2px}
 }
