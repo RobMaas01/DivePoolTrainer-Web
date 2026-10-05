@@ -56,7 +56,7 @@ body:not(.training-mode) .pool-badge{color:#111827;border-color:#2d4679}
 .brand strong{letter-spacing:.1em}
 @media(max-width:700px){.brand strong{font-size:12px}.brand small{font-size:10px}}
 #dialog-caption{display:none}
-.app-credit{font-size:11px;letter-spacing:.08em;color:#6d818b}
+.app-credit{display:inline-block;margin-top:8px;font-size:14px;font-weight:700;letter-spacing:.05em;color:#2d4679}
 body.training-mode footer{display:none}
 
 /* Keep the training view compact and consistent across phone and laptop widths. */
