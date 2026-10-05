@@ -29,3 +29,5 @@ Open daarna `http://localhost:8000`. Rechtstreeks `index.html` openen via `file:
 Publiceer de root van de `main` branch via **Settings → Pages → Build and deployment → Deploy from a branch → main / (root)**. De site gebruikt relatieve paden en werkt daardoor onder `https://robmaas01.github.io/DivePoolTrainer-Web/`.
 
 Alle bronbestanden staan direct in deze repository. Er is geen buildstap, backend of betaalde dienst nodig.
+
+GitHub Pages kan JavaScript en CSS tijdelijk in de browser cachen. Verhoog bij een volgende publicatie de `?v=` versies in `index.html` en de corresponderende paden plus `CACHE_NAME` in `sw.js`. Zo krijgen bezoekers meteen de nieuwste versie.
