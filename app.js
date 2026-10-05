@@ -1,6 +1,7 @@
-const STORAGE_KEY = 'dive-pool-trainer-settings-v1';
+const STORAGE_KEY = 'dive-pool-trainer-settings-v2';
 const LANGUAGE_KEY = 'dive-pool-trainer-language-v1';
-const DEFAULT_SETTINGS = { pool: 'FS4 AAA', points: 5, delay: 2000 };
+const DEFAULT_SETTINGS = { pool: 'FS8 Indoor', level: 2, delay: 2000 };
+const TARGET_FORMATIONS = { 1: 1, 2: 3, 3: 5 };
 const TRANSLATIONS = window.DivePoolI18n.TRANSLATIONS;
 let language = 'en';
 
@@ -12,6 +13,10 @@ function t(key, variables = {}) {
 function pointText(points) {
   if (language === 'uk' && points >= 2 && points <= 4) return t('fewPoints', { count: points });
   return t(points === 1 ? 'onePoint' : 'manyPoints', { count: points });
+}
+
+function levelText(level) {
+  return t(({ 1: 'levelBeginner', 2: 'levelIntermediate', 3: 'levelExpert' })[level]);
 }
 
 function loadLanguage() {
@@ -33,7 +38,7 @@ const els = {
   go: document.querySelector('#go-button'),
   reset: document.querySelector('#reset-button'),
   remaining: document.querySelector('#remaining-count'),
-  pointsLabel: document.querySelector('#points-label'),
+  levelLabel: document.querySelector('#level-label'),
   revealStatus: document.querySelector('#reveal-status'),
   figureCards: document.querySelector('#figure-cards'),
   search: document.querySelector('#search-input'),
@@ -41,8 +46,8 @@ const els = {
   libraryCount: document.querySelector('#library-count'),
   libraryGrid: document.querySelector('#library-grid'),
   poolSelect: document.querySelector('#pool-select'),
-  pointsRange: document.querySelector('#points-range'),
-  pointsOutput: document.querySelector('#points-output'),
+  levelRange: document.querySelector('#level-range'),
+  levelOutput: document.querySelector('#level-output'),
   delayRange: document.querySelector('#delay-range'),
   delayOutput: document.querySelector('#delay-output'),
   save: document.querySelector('#save-button'),
@@ -66,7 +71,7 @@ function readSettings() {
     const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
     return {
       pool: typeof saved.pool === 'string' && pools[saved.pool] ? saved.pool : DEFAULT_SETTINGS.pool,
-      points: Number.isInteger(saved.points) && saved.points >= 1 && saved.points <= 5 ? saved.points : DEFAULT_SETTINGS.points,
+      level: Number.isInteger(saved.level) && saved.level >= 1 && saved.level <= 3 ? saved.level : DEFAULT_SETTINGS.level,
       delay: Number.isInteger(saved.delay) && saved.delay >= 0 && saved.delay <= 5000 ? saved.delay : DEFAULT_SETTINGS.delay,
     };
   } catch {
@@ -89,13 +94,13 @@ function openTab(name) {
 
 function syncSettingsForm() {
   els.poolSelect.value = settings.pool;
-  els.pointsRange.value = settings.points;
+  els.levelRange.value = settings.level;
   els.delayRange.value = settings.delay;
   updateOutputs();
 }
 
 function updateOutputs() {
-  els.pointsOutput.value = pointText(Number(els.pointsRange.value));
+  els.levelOutput.value = levelText(Number(els.levelRange.value));
   const count = new Intl.NumberFormat(language, { minimumFractionDigits: 1, maximumFractionDigits: 1 }).format(Number(els.delayRange.value) / 1000);
   els.delayOutput.value = t('seconds', { count });
 }
@@ -145,7 +150,7 @@ function updateSessionInfo() {
   els.libraryPool.textContent = settings.pool;
   els.roundCount.textContent = t('round', { count: rounds });
   els.remaining.textContent = t('remaining', { count: remaining.length });
-  els.pointsLabel.textContent = t('target', { points: pointText(settings.points) });
+  els.levelLabel.textContent = levelText(settings.level);
   els.go.disabled = remaining.length === 0;
   if (remaining.length === 0 && rounds > 0) {
     els.jumpHint.textContent = t('poolFinished');
@@ -156,12 +161,12 @@ function drawJump() {
   if (!remaining.length) return;
   clearTimeout(revealTimer);
   selected = [];
-  let total = 0;
-  while (remaining.length && total < settings.points) {
+  let formations = 0;
+  while (remaining.length && formations < TARGET_FORMATIONS[settings.level]) {
     const index = Math.floor(Math.random() * remaining.length);
     const [id] = remaining.splice(index, 1);
     selected.push(figures.get(id));
-    total += figures.get(id).points;
+    formations += figures.get(id).points;
   }
   rounds += 1;
   els.jumpDisplay.textContent = selected.map(item => item.code).join(' – ');
@@ -260,18 +265,19 @@ async function start() {
     els.filters.forEach(item => item.classList.toggle('is-active', item === button));
     renderLibrary();
   }));
-  els.pointsRange.addEventListener('input', updateOutputs);
+  els.levelRange.addEventListener('input', updateOutputs);
   els.delayRange.addEventListener('input', updateOutputs);
   els.save.addEventListener('click', () => {
     const next = {
       pool: els.poolSelect.value,
-      points: Number(els.pointsRange.value),
+      level: Number(els.levelRange.value),
       delay: Number(els.delayRange.value),
     };
     const poolChanged = next.pool !== settings.pool;
+    const levelChanged = next.level !== settings.level;
     settings = next;
     try { localStorage.setItem(STORAGE_KEY, JSON.stringify(settings)); } catch { /* Browser storage can be disabled. */ }
-    if (poolChanged) resetSession();
+    if (poolChanged || levelChanged) resetSession();
     else updateSessionInfo();
     openTab('train');
   });

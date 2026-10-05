@@ -47,4 +47,20 @@ DICTIONARIES['nl-BE'] = {
   startHint: 'Druk op GO voor een nieuwe combinatie.',
 };
 
+const LEVEL_LABELS = {
+  en: ['Beginner · 1 random or block', 'Intermediate · 3–4 formations', 'Expert · 5–6 formations'],
+  nl: ['Beginner · 1 random of blok', 'Gevorderd · 3–4 figuren', 'Expert · 5–6 figuren'],
+  'nl-BE': ['Beginner · 1 random of blok', 'Gevorderd · 3–4 figuren', 'Expert · 5–6 figuren'],
+  fr: ['Débutant · 1 random ou bloc', 'Intermédiaire · 3–4 figures', 'Expert · 5–6 figures'],
+  de: ['Anfänger · 1 Random oder Block', 'Fortgeschritten · 3–4 Figuren', 'Experte · 5–6 Figuren'],
+  uk: ['Початківець · 1 рандом або блок', 'Середній · 3–4 фігури', 'Експерт · 5–6 фігур'],
+};
+
+for (const [locale, dictionary] of Object.entries(DICTIONARIES)) {
+  dictionary.ready = 'Ready-set';
+  dictionary.remaining = 'Rest:{count}';
+  dictionary.homeLabel = dictionary.homeLabel.replace('Dive Pool Trainer', 'QRF2 DIVE POOL trainer');
+  [dictionary.levelBeginner, dictionary.levelIntermediate, dictionary.levelExpert] = LEVEL_LABELS[locale];
+}
+
 window.DivePoolI18n = { TRANSLATIONS: DICTIONARIES };

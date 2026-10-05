@@ -1,4 +1,4 @@
-# Dive Pool Trainer Web
+# QRF2 DIVE POOL trainer
 
 Een zelfstandige, responsieve webapp om de letters en formaties van formation skydiving te leren. Werkt op desktop, laptop, Android en iPhone/iPad in de browser. Installatie en account zijn niet nodig.
 
@@ -7,7 +7,7 @@ Een zelfstandige, responsieve webapp om de letters en formaties van formation sk
 - Vier oorspronkelijke dive pools: FS4 AAA, FS4 AAA ISR, FS8 Outdoor en FS8 Indoor.
 - Willekeurige sprongen zonder herhaling totdat de pool leeg is.
 - Vaste oefenindeling zoals de Android app: codes boven, figuren midden en GO onderaan op dezelfde plek.
-- Moeilijkheid van 1–5 punten en automatische figuurweergave na 0–5 seconden.
+- Drie niveaus: Beginner trekt één random of blok; Intermediate telt door tot 3 of 4 formaties; Expert tot 5 of 6 formaties. Een random telt 1 en een blok 2. De figuren verschijnen na 0-5 seconden.
 - Figuurkaarten vergroten en figuren doorzoeken op code of naam.
 - Instellingen worden lokaal in de browser bewaard; er worden geen persoonsgegevens verzonden.
 - Werkt offline nadat de site een keer volledig is geladen.
