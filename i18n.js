@@ -68,7 +68,7 @@ const REMAINING_LABELS = {
 for (const [locale, dictionary] of Object.entries(DICTIONARIES)) {
   dictionary.ready = 'Ready-set';
   dictionary.remaining = REMAINING_LABELS[locale];
-  dictionary.homeLabel = dictionary.homeLabel.replace('Dive Pool Trainer', 'QRF2 DIVE POOL trainer');
+  dictionary.homeLabel = dictionary.homeLabel.replace('Dive Pool Trainer', 'DIVE POOL trainer');
   [dictionary.levelBeginner, dictionary.levelIntermediate, dictionary.levelExpert] = LEVEL_LABELS[locale];
 }
 

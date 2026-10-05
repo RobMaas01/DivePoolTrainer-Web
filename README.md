@@ -1,4 +1,4 @@
-# QRF2 DIVE POOL trainer
+# DIVE POOL trainer
 
 Een zelfstandige, responsieve webapp om de letters en formaties van formation skydiving te leren. Werkt op desktop, laptop, Android en iPhone/iPad in de browser. Installatie en account zijn niet nodig.
 
