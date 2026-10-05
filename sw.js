@@ -1,5 +1,5 @@
-const CACHE_NAME = 'qrf2-dive-pool-v6';
-const CORE = ['./', './index.html', './style.css?v=5', './i18n.js?v=4', './app.js?v=5', './icon.svg', './manifest.webmanifest?v=2', './data/pool.json'];
+const CACHE_NAME = 'qrf2-dive-pool-v7';
+const CORE = ['./', './index.html', './style.css?v=5', './i18n.js?v=4', './app.js?v=6', './icon.svg', './manifest.webmanifest?v=2', './data/pool.json'];
 
 self.addEventListener('install', event => {
   event.waitUntil((async () => {

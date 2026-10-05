@@ -221,8 +221,8 @@ function renderLibrary() {
 
 function showFigure(item) {
   els.dialogImage.src = `./${item.image}`;
-  els.dialogImage.alt = `${item.code}: ${item.name}`;
-  els.dialogCaption.textContent = `${item.code} · ${item.name}`;
+  els.dialogImage.alt = item.code;
+  els.dialogCaption.textContent = item.code;
   els.dialog.showModal();
 }
 
