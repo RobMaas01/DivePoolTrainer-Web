@@ -60,7 +60,7 @@ const REMAINING_LABELS = {
   en: 'Remaining: {count}',
   nl: 'Resterend: {count}',
   'nl-BE': 'Resterend: {count}',
-  fr: 'Restant : {count}',
+  fr: 'Restants : {count}',
   de: 'Verbleibend: {count}',
   uk: 'Залишилось: {count}',
 };
